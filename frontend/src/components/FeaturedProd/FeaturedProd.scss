@@ -1,0 +1,45 @@
+.featuredprod{
+    margin: 70px 100px 150px;
+    @media only screen and (max-width:435px) {
+        margin: 70px auto;
+        width: 300px;
+    }
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+        h1{
+            flex: 2;
+            @media only screen and (max-width:435px) {
+                padding: 0 20px;
+            }
+        }
+    }
+    .bottom{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        @media only screen and (max-width:435px) {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            gap: 20px;
+        }
+        .image{
+            height: 400px;
+        }
+        .card{
+            width: 300px;
+        }
+    }
+}
+@media only screen and (max-width:435px) {
+    .bottom{
+        display: flex;
+        flex-wrap: wrap;
+        width: 200px;
+        gap: 20px;
+    }
+}
