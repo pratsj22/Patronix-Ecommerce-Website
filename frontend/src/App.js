@@ -14,6 +14,8 @@ import Login from "./pages/SignUp&Login/Login";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import NotFound from "./pages/404_NotFound_Page/NotFound";
 import Checkout from "./pages/Checkout/Checkout";
+import Success from "./pages/SuccessPage/Success";
+import OrderDetails from "./pages/Order_Details_Page/OrderDetails";
 
 const Layout = () =>{
   return(
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
       {
         path:"/checkout",
         element:<Checkout/>,
+      },
+      {
+        path:"/success",
+        element:<Success/>,
+      },
+      {
+        path:"/user/orders",
+        element:<OrderDetails/>,
       },
       {
         path:"*",

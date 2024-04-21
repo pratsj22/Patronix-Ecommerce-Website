@@ -1,16 +1,23 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 // import {useSelector} from 'react-redux'
 import { toast } from "react-toastify";
 import { userLogin } from "../../redux/userReducer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
   const[email,setEmail]=useState()
   const[password,setPassword]=useState()
   const navigate= useNavigate();
   const dispatch= useDispatch()
+  const location = useLocation();
+  const user= useSelector((state)=>state.userData.user)
+  useEffect(()=>{
+    if(user){
+      navigate("/")
+    }
+  },[])
   const handleSubmit=async(e)=>{
     if(!email || !password) return;
     e.preventDefault();
@@ -27,7 +34,7 @@ export default function Login() {
       toast.success(loginData.data.message, {
         position: toast.POSITION.TOP_CENTER,
     })
-    navigate("/")
+    location.state?navigate(location.state):navigate("/")
     } catch (error) {
       toast.error(error.response.data.message, {
         position: toast.POSITION.TOP_CENTER,

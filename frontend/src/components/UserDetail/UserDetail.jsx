@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LogoutButton from '../LogoutButton/LogoutButton';
 
 function classNames(...classes) {
@@ -12,6 +12,7 @@ function classNames(...classes) {
 export default function UserDetail() {
   const user = useSelector((data) => data.userData.user)
   const[logout,setLogout]= useState(false)
+  const location= useLocation();
   return (
     <Menu as="div" className="relative inline-block text-left ic">
       <div className='flex items-center'>
@@ -47,7 +48,7 @@ export default function UserDetail() {
             <Menu.Item>
               {({ active }) => (
                 <Link
-                  // to={user?"/user/orders":"/user/login"}
+                  to={user?"/user/orders":"/user/login"}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
@@ -60,7 +61,8 @@ export default function UserDetail() {
             {!user ? <Menu.Item>
               {({ active }) => (
                 <Link
-                  to="/user/login"
+                  to={"/user/login"}
+                  state={location.pathname}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'

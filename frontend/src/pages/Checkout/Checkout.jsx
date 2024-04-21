@@ -1,36 +1,79 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
-    const products = useSelector(state => state.cartData.products)
-    const location = useLocation()
+  const products = useSelector(state => state.cartData.products)
+  const user = useSelector(state => state.userData.user)
+  const navigate= useNavigate()
+  useEffect(()=>{
+    if(products.length===0){
+      navigate("/")
+    }
+  },[products,navigate])
+  const totalPrice = function () {
+    let total = 0;
+    products.forEach(element => {
+      total += element.price * element.quantity
+    });
+    return total.toFixed(2);
+  }
+
+  const handlePurchase = async (e) => {
+    const res= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/`, {
+      amount: totalPrice()*100,
+    })
+    const order= res.data.orders.id;
+    const options = {
+      key: process.env.REACT_APP_KEY_ID,
+      order_id: order,
+      name: user.name,
+      description: "Halkat",
+      image: "https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg",
+      "handler": function (response){
+        axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/create`,{
+          orderId:order,
+          products:products.map((item)=>({id:item.id,quantity:item.quantity})),
+          totalAmount:res.data.orders.amount/100,
+          userId:user.id
+        }).then(
+          navigate("/success",{state:true})
+        )
+    },
+      "prefill[name]": user.name,
+    }
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+    e.preventDefault();
+  }
   return (
     <div className="font-[sans-serif] bg-white">
+
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4 h-full">
         <div className="bg-[white] lg:h-screen lg:sticky lg:top-0">
           <div className="relative h-full">
             <div className="p-8 lg:overflow-auto lg:h-[calc(100vh-60px)]">
               <h2 className="text-2xl font-bold text-black">Order Summary</h2>
               <div className="space-y-6 mt-10">
-                {products.map((item)=>(
-                <div className="grid sm:grid-cols-2 items-start gap-6" key={item.id}>
-                  <div className="px-4 py-6 shrink-0 bg-blue-50 rounded-md">
-                    <img src={item.img} alt="" className="w-full object-contain" />
+                {products.map((item) => (
+                  <div className="grid sm:grid-cols-2 items-start gap-6" key={item.id}>
+                    <div className="px-4 py-6 shrink-0 bg-blue-50 rounded-md">
+                      <img src={item.img} alt="" className="w-full object-contain" />
+                    </div>
+                    <div>
+                      <h3 className="text-base text-black">{item.title}</h3>
+                      <ul className="text-xs text-black space-y-3 mt-4">
+                        <li className="flex flex-wrap gap-4">Quantity <span className="ml-auto">{item.quantity}</span></li>
+                        <li className="flex flex-wrap gap-4">Total Price <span className="ml-auto">₹{item.price * item.quantity}</span></li>
+                      </ul>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base text-black">{item.title}</h3>
-                    <ul className="text-xs text-black space-y-3 mt-4">
-                      <li className="flex flex-wrap gap-4">Quantity <span className="ml-auto">{item.quantity}</span></li>
-                      <li className="flex flex-wrap gap-4">Total Price <span className="ml-auto">${item.price*item.quantity}</span></li>
-                    </ul>
-                  </div>
-                </div>
                 ))}
               </div>
             </div>
             <div className="absolute left-0 bottom-0 bg-blue-00 w-full p-4">
-              <h4 className="flex flex-wrap gap-4 text-base text-black">Total <span className="ml-auto">${location.state.total}</span></h4>
+              <h4 className="flex flex-wrap gap-4 text-base text-black">Total <span className="ml-auto">₹{totalPrice()}</span></h4>
             </div>
           </div>
         </div>
@@ -72,7 +115,7 @@ const Checkout = () => {
               </div>
               <div className="flex gap-6 max-sm:flex-col mt-10">
                 <button type="button" className="rounded-md px-6 py-3 w-full text-sm font-semibold bg-transparent hover:bg-blue-100 border-2 text-[#333]">Cancel</button>
-                <button type="button" className="rounded-md px-6 py-3 w-full text-sm font-semibold bg-blue-600 text-white hover:bg-[#222]">Complete Purchase</button>
+                <button type="button" className="rounded-md px-6 py-3 w-full text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700" onClick={handlePurchase}>Complete Purchase</button>
               </div>
             </div>
           </form>

@@ -4,10 +4,12 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useDispatch } from 'react-redux'
 import { userLogout } from '../../redux/userReducer'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export default function LogoutButton({setLogout}) {
   const [open, setOpen] = useState(true)
   const dispatch= useDispatch()
+  const navigate= useNavigate();
   const cancelButtonRef = useRef(null)
     const handleClick=()=>{
         setOpen(false);
@@ -16,6 +18,7 @@ export default function LogoutButton({setLogout}) {
         toast.success("Logout Successful",{
             position:'top-center'
         })
+        navigate("/")
     }
   return (
     <Transition.Root show={open} as={Fragment}>
