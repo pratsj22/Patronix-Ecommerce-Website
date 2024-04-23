@@ -24,6 +24,8 @@ export const loginController=async(req,res)=>{
     const passwordCheck= await comparePassword(password,user.password)
     if(passwordCheck){
         const token= JWT.sign({_id:user._id},process.env.JWT_SECRET_KEY,{expiresIn:"7d"});
+        user.token=token;
+        user.save()
         return res.send({
             message:"Login Successful",
             user:{
@@ -42,8 +44,13 @@ export const loginController=async(req,res)=>{
 export const authenticate=async(req,res)=>{
     try {
         const decode= JWT.verify(req.headers.authorization.split(" ")[1],process.env.JWT_SECRET_KEY)
-        res.send({
-            message:"done"
+        if(req.headers.user===decode._id){
+            res.send({
+                message:"done"
+            })
+        }
+        else res.send({
+            message:"Stop playing with Local Storage"
         })
     } catch (error) {
         res.status(500).send({

@@ -1,37 +1,9 @@
-import { useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
-import { useEffect } from "react";
-import {toast} from 'react-toastify'
-import axios from "axios";
+import useValidate from "../../hooks/useValidate";
 
 export default function MyProfile() {
-  const userData = useSelector((data)=> data.userData)
-  const navigate= useNavigate()
-  const user= userData.user;
-  const token= userData.token;
-  const fetchData=async()=>{
-    try {
-      await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/auth/test`,{
-        headers:{
-          'Authorization':`bearer ${token}`,
-        },
-      })
-    } catch (error) {
-      navigate("/user/login")
-      toast.error("Unauthorized Access",{
-        position:'top-center'
-      })
-    }
-  }
 
-  useEffect(()=>{
-    if(!user){
-      navigate("/user/login")
-    }
-    else{
-      fetchData();
-    }
-  })
+  const {user}=useValidate();
+  
   return (
     <div className=' flex flex-col items-center'>
       <div className="flex flex-col px-4 sm:px-0 items-center">

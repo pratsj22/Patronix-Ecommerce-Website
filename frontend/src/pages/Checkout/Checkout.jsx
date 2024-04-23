@@ -1,11 +1,12 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import useValidate from '../../hooks/useValidate'
 
 const Checkout = () => {
   const products = useSelector(state => state.cartData.products)
-  const user = useSelector(state => state.userData.user)
+  const {user}=useValidate();
   const navigate= useNavigate()
   useEffect(()=>{
     if(products.length===0){
@@ -24,6 +25,7 @@ const Checkout = () => {
     const res= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/`, {
       amount: totalPrice()*100,
     })
+    console.log(res);
     const order= res.data.orders.id;
     const options = {
       key: process.env.REACT_APP_KEY_ID,

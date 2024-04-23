@@ -136,7 +136,7 @@ function SidebarWithBurgerMenu() {
                             </AccordionBody>
                         </Accordion>
                         <hr className="my-2 border-blue-gray-50" />
-                        <Link to="/user/profile" onClick={closeDrawer}>
+                        <Link to={user?"/user/profile":"/login"} onClick={closeDrawer}>
                             <ListItem>
                                 <ListItemPrefix>
                                     <UserCircleIcon className="h-5 w-5 mr-1" />
@@ -144,7 +144,7 @@ function SidebarWithBurgerMenu() {
                                 My Profile
                             </ListItem>
                         </Link>
-                        <Link to="/products/1" onClick={closeDrawer}>
+                        <Link to={user?"/user/orders":"/login"} onClick={closeDrawer}>
                             <ListItem>
                                 <ListItemPrefix>
                                     <ShoppingBagIcon className="h-5 w-5 mr-1" />
