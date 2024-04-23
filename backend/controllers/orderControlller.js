@@ -14,7 +14,7 @@ export const orderController = async (req, res) => {
         })
     } catch (error) {
         res.send({
-            eroor: error.message
+            error: error.message
         })
     }
 }

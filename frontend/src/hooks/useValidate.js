@@ -35,7 +35,6 @@ const useValidate=()=>{
             }
           }
           ValidateUser();
-          console.log("inside validate");
     },[token,navigate,dispatch,user])
     return {user};
 }

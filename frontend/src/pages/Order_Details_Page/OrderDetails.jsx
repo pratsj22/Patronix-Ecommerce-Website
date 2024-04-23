@@ -1,11 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import useValidate from "../../hooks/useValidate";
 
 export default function OrderDetails() {
   const[orders,setOrders]=useState()
-  const user = useSelector(state => state.userData.user)
+  const {user}=useValidate();
   
   useEffect(()=>{
     const fetchData=async()=>{

@@ -25,7 +25,6 @@ const Checkout = () => {
     const res= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/`, {
       amount: totalPrice()*100,
     })
-    console.log(res);
     const order= res.data.orders.id;
     const options = {
       key: process.env.REACT_APP_KEY_ID,
@@ -74,7 +73,7 @@ const Checkout = () => {
                 ))}
               </div>
             </div>
-            <div className="absolute left-0 bottom-0 bg-blue-00 w-full p-4">
+            <div className="bg-blue-00 w-full p-4">
               <h4 className="flex flex-wrap gap-4 text-base text-black">Total <span className="ml-auto">₹{totalPrice()}</span></h4>
             </div>
           </div>
