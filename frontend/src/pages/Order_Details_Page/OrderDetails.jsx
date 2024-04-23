@@ -13,7 +13,7 @@ export default function OrderDetails() {
       setOrders(res.data.data)
     }
     fetchData()
-  },[])
+  },[user])
   return (
     <div className="bg-white">
       {/* Mobile menu */}
