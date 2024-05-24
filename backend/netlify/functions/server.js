@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
 // app.use('/.netlify/functions/server/api/v1/auth', authRoutes);
 // app.use('/.netlify/functions/server/api/v1/category', categoryRoute);
 // app.use('/.netlify/functions/server/api/v1/products', productRoute);
-app.use('/.netlify/functions/server/api/v1/orders', orderRoute);
+// app.use('/.netlify/functions/server/api/v1/orders', orderRoute);
 
 app.listen(port,()=>{
     console.log("Server running on port",port);
