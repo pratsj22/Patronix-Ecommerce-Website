@@ -6,7 +6,7 @@ import { removeItem } from '../../redux/cartReducer';
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Cart = ({ open, setOpen }) => {
@@ -14,7 +14,6 @@ const Cart = ({ open, setOpen }) => {
     const user = useSelector(state => state.userData.user)
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const location = useLocation();
     const totalPrice = () => {
         let total = 0;
         products.forEach(element => {

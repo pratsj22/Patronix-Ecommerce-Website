@@ -1,6 +1,6 @@
 import express from "express"
 import dotenv from "dotenv";
-import { default as connectDB } from '../../config/dbConnection.js';
+import { connectDB } from '../../config/dbConnection.js';
 import authRoutes from '../../routes/authRoute.js'
 import categoryRoute from '../../routes/categoryRoute.js'
 import productRoute from '../../routes/productRoute.js'
