@@ -19,10 +19,10 @@ app.get('/',(req,res)=>{
     res.send("hello")
 })
 //routes
-app.use('/api/v1/auth',()=>authRoutes)
-app.use('/api/v1/category',()=>categoryRoute)
-app.use('/api/v1/products',()=>productRoute)
-app.use('/api/v1/orders',()=>orderRoute)
+// app.use('/api/v1/auth',authRoutes)
+app.use('/api/v1/category',categoryRoute)
+// app.use('/api/v1/products',productRoute)
+// app.use('/api/v1/orders',orderRoute)
 
 app.listen(port,()=>{
     console.log("Server running on port",port);
