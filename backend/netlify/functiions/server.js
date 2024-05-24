@@ -1,11 +1,12 @@
 import express from "express"
 import dotenv from "dotenv";
-import connectDB from "./config/dbConnection.js";
-import authRoutes from './routes/authRoute.js'
-import categoryRoute from './routes/categoryRoute.js'
-import productRoute from './routes/productRoute.js'
-import orderRoute from './routes/orderRoute.js'
+import connectDB from "../../config/dbConnection.js";
+import authRoutes from '../../routes/authRoute.js'
+import categoryRoute from '../../routes/categoryRoute.js'
+import productRoute from '../../routes/productRoute.js'
+import orderRoute from '../../routes/orderRoute.js'
 import cors from 'cors';
+import serverless from "serverless-http";
 
 dotenv.config()
 connectDB()
@@ -26,3 +27,5 @@ app.use('/api/v1/orders',orderRoute)
 app.listen(port,()=>{
     console.log("Server running on port",port);
 })
+
+export const handler = serverless(app);
