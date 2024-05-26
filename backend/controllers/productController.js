@@ -43,7 +43,7 @@ export const getSingleProductController=async(req,res)=>{
     }
 }
 export const getTypeWiseProducts=async(req,res)=>{
-    const response=await productModel.find({productType:req.params.productType.toLowerCase()})
+    const response=await productModel.find({productType:req.params.productType})
     res.send({
         response
     })
