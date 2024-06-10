@@ -23,7 +23,7 @@ app.use('/api/v1/category',categoryRoute)
 app.use('/api/v1/products',productRoute)
 app.use('/api/v1/orders',orderRoute)
 
-// app.listen(port,()=>{
-//     console.log("Server running on port",port);
-// })
+app.listen(port,()=>{
+    console.log("Server running on port",port);
+})
 export default app;
