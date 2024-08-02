@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import useValidate from "../../hooks/useValidate";
 
 export default function MyProfile() {
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const {user}=useValidate();
   
   return (

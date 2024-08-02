@@ -45,6 +45,9 @@ const Products = () => {
     }
     fetchData();
   },[catId])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="products">
       <div className="topfilter" onClick={()=>setIcon(icon===0? 1:0)}>

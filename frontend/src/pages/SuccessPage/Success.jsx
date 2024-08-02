@@ -7,7 +7,9 @@ const Success = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     const navigate = useNavigate()
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     useEffect(()=>{
         if(!location.state){
             navigate("*")

@@ -6,7 +6,9 @@ import useValidate from "../../hooks/useValidate";
 export default function OrderDetails() {
   const[orders,setOrders]=useState()
   const {user}=useValidate();
-  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   useEffect(()=>{
     const fetchData=async()=>{
       const res= await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/orders/get-orders/${user.id}`)

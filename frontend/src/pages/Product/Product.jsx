@@ -15,6 +15,9 @@ const Product = () => {
   const [selectedImg, setSelectedImg] = useState(null)
   const dispatch = useDispatch()
   const [data,setData]=useState()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   useEffect(()=>{
     const fetchData = async () => {
         const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/products/product/${id}`)

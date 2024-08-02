@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
 import { Link, useNavigate } from 'react-router-dom';
@@ -21,34 +21,33 @@ export default function SignUp() {
   const[password,setPassword]=useState()
   const navigate= useNavigate();
   const dispatch= useDispatch();
-  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const handleSubmit=async(e)=>{
     if(!email || !password || !phone || !address || !firstName || !lastName) return;
     e.preventDefault();
     try {
-      const response= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/auth/register`,{
+      const loginData= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/auth/register`,{
         name: firstName+" "+lastName,
         email,
         phone,
         password,
         address
       });
-      const loginData=await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/auth/login`,{
-        email,
-        password
-      })
-      dispatch(userLogin({
-        user:loginData.data.user,
-        token:loginData.data.token
-      }))
-      toast.success(response.data.message, {
+        dispatch(userLogin({
+          user:loginData.data.user,
+          token:loginData.data.token
+        }))
+        toast.success("Signup Successful", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+        navigate("/")
+      } catch (error) {
+      toast.error(error.response.data.error, {
         position: toast.POSITION.TOP_CENTER,
     })
-    navigate("/")
-    } catch (error) {
-      toast.error(error.response.data.message, {
-        position: toast.POSITION.TOP_CENTER,
-    })
+    navigate("/user/login")
     }
   }
 

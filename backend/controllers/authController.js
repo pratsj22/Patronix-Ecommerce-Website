@@ -5,7 +5,7 @@ export const registerController=async(req,res)=>{
     const{name,email,phone,password,address}=req.body;
     const userEmail= await userModel.findOne({email})
     if(userEmail){
-        return res.send({error:"User Already Exists Please Login"})
+        return res.status(400).send({error:"User Already Exists Please Login"})
     }
     const hashedPassword= await hashPassword(password);
     await userModel.create({
@@ -15,7 +15,7 @@ export const registerController=async(req,res)=>{
         password:hashedPassword,
         address
     })
-    res.send({message:"SignUp Successful"})
+    loginController(req,res);
 }
 export const loginController=async(req,res)=>{
     const{email,password}=req.body;

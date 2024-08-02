@@ -45,6 +45,14 @@ const router = createBrowserRouter([
         element:<Product/>,
       },
       {
+        path:"/checkout",
+        element:<Checkout/>,
+      },
+      {
+        path:"/success",
+        element:<Success/>,
+      },
+      {
         path:"/user/signup",
         element:<SignUp/>,
       },
@@ -55,14 +63,6 @@ const router = createBrowserRouter([
       {
         path:"/user/profile",
         element:<MyProfile/>,
-      },
-      {
-        path:"/checkout",
-        element:<Checkout/>,
-      },
-      {
-        path:"/success",
-        element:<Success/>,
       },
       {
         path:"/user/orders",

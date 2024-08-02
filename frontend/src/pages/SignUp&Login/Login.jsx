@@ -17,7 +17,9 @@ export default function Login() {
     if(user){
       navigate("/")
     }
+    window.scrollTo(0, 0)
   },[])
+
   const handleSubmit=async(e)=>{
     if(!email || !password) return;
     e.preventDefault();

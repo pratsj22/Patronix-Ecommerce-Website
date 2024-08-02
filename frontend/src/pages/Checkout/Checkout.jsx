@@ -8,6 +8,9 @@ const Checkout = () => {
   const products = useSelector(state => state.cartData.products)
   const {user}=useValidate();
   const navigate= useNavigate()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   useEffect(()=>{
     if(products.length===0){
       navigate("/")
@@ -30,7 +33,7 @@ const Checkout = () => {
       key: process.env.REACT_APP_KEY_ID,
       order_id: order,
       name: user.name,
-      description: "Halkat",
+      description: "desc",
       image: "https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg",
       "handler": function (response){
         axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/create`,{
