@@ -44,14 +44,6 @@ export const loginController=async(req,res)=>{
 export const authenticate=async(req,res)=>{
     try {
         const decode= JWT.verify(req.headers.authorization.split(" ")[1],process.env.JWT_SECRET_KEY)
-        if(req.headers.user===decode._id){
-            res.send({
-                message:"done"
-            })
-        }
-        else res.send({
-            message:"Stop playing with Local Storage"
-        })
     } catch (error) {
         res.status(500).send({
             message:"error"

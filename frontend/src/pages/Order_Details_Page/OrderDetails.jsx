@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import useValidate from "../../hooks/useValidate";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartReducer";
 
 export default function OrderDetails() {
   const[orders,setOrders]=useState()
@@ -16,6 +18,9 @@ export default function OrderDetails() {
     }
     fetchData()
   },[user])
+  const dispatch = useDispatch()
+  console.log(orders);
+  
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -66,6 +71,13 @@ export default function OrderDetails() {
                       <button
                         type="button"
                         className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-2.5 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:w-full sm:flex-grow-0"
+                        onClick={()=>dispatch(addToCart({
+                          id: product.id,
+                          title: product.title,
+                          img: product.image,
+                          price: product.price,
+                          quantity:product.quantity,
+                      }))}
                       >
                         Buy again
                       </button>

@@ -53,7 +53,6 @@ const Product = () => {
                 title: data?.title,
                 img: data?.image1,
                 price: data?.price,
-                desc: data?.description,
                 quantity,
             }))}
             >

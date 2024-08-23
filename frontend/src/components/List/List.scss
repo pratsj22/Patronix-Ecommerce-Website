@@ -1,5 +1,5 @@
 .list{
-    margin: 0px 45px;
+    margin: 0px 38px;
     display: flex;
     gap: 20px;
     column-gap: 30px;
@@ -10,19 +10,6 @@
         justify-content: center;
     }
     .card{
-        @media only screen and (max-width:435px) {
-            width: 140px;
-            margin: 0 auto 80px;
-        }
-        .image{
-            @media only screen and (max-width:435px) {
-                height: 160px;
-            }
-        }
-        h2,h3{
-            @media only screen and (max-width:435px) {
-                font-size: 12px;
-            }
-        }
+       flex: 1/3;
     }
 }

@@ -22,7 +22,7 @@ const FeaturedProd = ({ type }) => {
       <div className="top">
         <h1><b>{type} Products</b></h1>
       </div>
-      <div className="bottom">
+      <div className="bottom w-full">
         {error?"Something Went Wrong"
         :data?.map(item => (
           <Card item={item} key={item._id} />

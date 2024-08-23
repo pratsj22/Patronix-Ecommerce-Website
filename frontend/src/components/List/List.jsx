@@ -4,16 +4,16 @@ import Card from '../Card/Card'
 import axios from 'axios'
 
 const List = ({ catId, maxPrice, sort, subCats }) => {
-  // const {data,loading,error} = useFetch(`/products?populate=*&[filters][categories][id][$eq]=${catId}${subCats.map((item)=>`&[filters][sub_categories][id][$eq]=${item}`)}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`)
   const [data, setData] = useState()
   const [error, setError] = useState()
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/products/category/${catId}`,{
           maxPrice,
           sort,
-          subCats
+          subCats:Array.from(subCats)
         })
         setData(response.data.response)
       } catch (error) {
