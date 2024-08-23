@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Products.scss'
 import List from '../../components/List/List'
 import { useParams } from 'react-router-dom'
@@ -34,17 +34,17 @@ const Products = () => {
     "Vacuum Cleaners"
   ]
 
-  const sortOptions = [
-    { name: 'Most Popular', href: '#', current: true },
-    { name: 'Newest', href: '#', current: false },
-    { name: 'Price: Low to High', href: '#', current: false },
-    { name: 'Price: High to Low', href: '#', current: false },
-  ]
+  const sortOptions = useRef([
+    { name: 'Most Popular', current: true },
+    { name: 'Newest', current: false },
+    { name: 'Price: Low to High', current: false },
+    { name: 'Price: High to Low', current: false },
+  ])
 
 
   const id = useParams().id;
   const catId = parseInt(id)
-  const [sort, setSort] = useState("")
+  const [sort, setSort] = useState({"_id":1})
   const [selectedSubCats, setSelectedSubCats] = useState(new Set())
   const [data, setData] = useState()
   const [error, setError] = useState()
@@ -58,11 +58,13 @@ const Products = () => {
     setSelectedSubCats(newSet);
   }
   const handleSort = (index) => {
-    if (sortOptions[index].current === true) return;
-    sortOptions.map((item) => item.current = false);
-    sortOptions[index].current = true;
-    if (index === 2) setSort("asc")
-    else if (index === 3) setSort("desc")
+    if (sortOptions.current[index].current === true) return;
+    sortOptions.current.map((item) => item.current = false);
+    sortOptions.current[index].current = true;
+    if (index === 2) setSort({"price":1})
+    else if (index === 3) setSort({"price":-1})
+    else if (index === 1) setSort({"_id":-1})
+    else setSort({"_id":1})
   }
   useEffect(() => {
     const fetchData = async () => {
@@ -147,7 +149,7 @@ const Products = () => {
                   className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                 >
                   <div className="py-1">
-                    {sortOptions.map((option, index) => (
+                    {sortOptions.current.map((option, index) => (
                       <MenuItem key={option.name}>
                         <div
                           onClick={() => handleSort(index)}

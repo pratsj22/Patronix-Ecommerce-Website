@@ -52,15 +52,9 @@ export const getCategoryWiseProducts=async(req,res)=>{
     try {
         const{sort,subCats}=req.body;
         const filter={}
-        const sortBasedOn={"_id":1}
         filter["category"]=req.params.id;
-        if(sort) {
-            delete sortBasedOn._id;
-            if(sort==="asc")sortBasedOn["price"]=1;
-            else sortBasedOn["price"]=-1;
-        }
         if(subCats[0]) filter["subCategory"]=subCats
-        const response=await productModel.find(filter).sort(sortBasedOn)
+        const response=await productModel.find(filter).sort(sort)
         res.send({
             response
         })
