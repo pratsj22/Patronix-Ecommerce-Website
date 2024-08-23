@@ -44,7 +44,6 @@ const Products = () => {
 
   const id = useParams().id;
   const catId = parseInt(id)
-  const [maxPrice, setMaxPrice] = useState(50000)
   const [sort, setSort] = useState("")
   const [selectedSubCats, setSelectedSubCats] = useState(new Set())
   const [data, setData] = useState()
@@ -199,7 +198,7 @@ const Products = () => {
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <List catId={catId} maxPrice={maxPrice} sort={sort} subCats={selectedSubCats} />
+                <List catId={catId} sort={sort} subCats={selectedSubCats} />
               </div>
             </div>
           </section>

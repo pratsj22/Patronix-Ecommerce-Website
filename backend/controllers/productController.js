@@ -50,11 +50,10 @@ export const getTypeWiseProducts=async(req,res)=>{
 }
 export const getCategoryWiseProducts=async(req,res)=>{
     try {
-        const{maxPrice,sort,subCats}=req.body;
+        const{sort,subCats}=req.body;
         const filter={}
         const sortBasedOn={"_id":1}
         filter["category"]=req.params.id;
-        if(maxPrice) filter["price"]={"$lt":maxPrice}
         if(sort) {
             delete sortBasedOn._id;
             if(sort==="asc")sortBasedOn["price"]=1;

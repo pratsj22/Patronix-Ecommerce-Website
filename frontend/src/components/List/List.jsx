@@ -3,7 +3,7 @@ import './List.scss'
 import Card from '../Card/Card'
 import axios from 'axios'
 
-const List = ({ catId, maxPrice, sort, subCats }) => {
+const List = ({ catId, sort, subCats }) => {
   const [data, setData] = useState()
   const [error, setError] = useState()
   
@@ -11,7 +11,6 @@ const List = ({ catId, maxPrice, sort, subCats }) => {
     const fetchData = async () => {
       try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/products/category/${catId}`,{
-          maxPrice,
           sort,
           subCats:Array.from(subCats)
         })
@@ -21,7 +20,7 @@ const List = ({ catId, maxPrice, sort, subCats }) => {
       }
     }
     fetchData();
-  }, [catId,maxPrice,sort,subCats])
+  }, [catId,sort,subCats])
   return (
     <div className='list'>
       {error ? "Something went wrong!"
