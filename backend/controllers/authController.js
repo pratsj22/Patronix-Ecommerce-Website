@@ -49,5 +49,7 @@ export const authenticate=async(req,res)=>{
             message:"error"
         })
     }
-
+    res.send({
+        message:"authenticated"
+    })
 }
