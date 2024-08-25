@@ -15,17 +15,12 @@ const useValidate=()=>{
     useEffect(()=>{
         const ValidateUser=async()=>{
             try {
-              const response=await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/auth/test`,{
+              await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/auth/test`,{
                 headers:{
                   'Authorization':`bearer ${token}`,
                   'User':user.id
                 },
               })
-              if(response.data.message!=="done"){
-                toast.error(response.data.message,{
-                    position:'top-center'
-                  })
-              }
             } catch (error) {
               navigate("/user/login")
               toast.error("Unauthorized Access",{
