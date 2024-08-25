@@ -44,12 +44,12 @@ export const loginController=async(req,res)=>{
 export const authenticate=async(req,res)=>{
     try {
         const decode= JWT.verify(req.headers.authorization.split(" ")[1],process.env.JWT_SECRET_KEY)
+        res.send({
+            message:"authenticated"
+        })
     } catch (error) {
         res.status(500).send({
             message:"error"
         })
     }
-    res.send({
-        message:"authenticated"
-    })
 }
