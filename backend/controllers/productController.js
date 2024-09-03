@@ -1,34 +1,32 @@
 import productModel from "../models/productModel.js";
-import getImageUrl from "../config/firebaseConfig.js";
 
-export const createProductController=async(req,res)=>{
-    try {
-        const {id,title,desc,price,category,subCategory,imagePath1,imagePath2,newArrival,productType}= req.body;
-        const image1= await getImageUrl(imagePath1)
-        const image2= await getImageUrl(imagePath2)
-        console.log(desc)
-        await productModel.create({
-            _id:id,
-            title,
-            description:desc,
-            newArrival,
-            productType,
-            price,
-            image1,
-            image2,
-            category,
-            subCategory
-        })
-        res.send({
-            message:"created"
-        })
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({
-            message:error
-        })
-    }
-}
+// export const createProductController=async(req,res)=>{
+//     try {
+//         const {id,title,desc,price,category,subCategory,imagePath1,imagePath2,newArrival,productType}= req.body;
+//         const image1= await getImageUrl(imagePath1)
+//         const image2= await getImageUrl(imagePath2)
+//         await productModel.create({
+//             _id:id,
+//             title,
+//             description:desc,
+//             newArrival,
+//             productType,
+//             price,
+//             image1,
+//             image2,
+//             category,
+//             subCategory
+//         })
+//         res.send({
+//             message:"created"
+//         })
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).send({
+//             message:error
+//         })
+//     }
+// }
 
 export const getSingleProductController=async(req,res)=>{
     try {
