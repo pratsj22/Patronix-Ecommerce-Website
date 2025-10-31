@@ -87,7 +87,7 @@ const Products = () => {
         <Dialog open={mobileFiltersOpen} onClose={setMobileFiltersOpen} className="relative z-40 lg:hidden">
           <DialogBackdrop
             transition
-            className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear data-closed:opacity-0"
+            className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"
           />
 
           <div className="fixed inset-0 z-40 flex">

@@ -52,7 +52,7 @@ function SidebarWithBurgerMenu() {
                     <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                         <div className="relative block w-full">
                             <div role="button"
-                                className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none bg-blue-gray-50/50 text-start text-blue-gray-700 hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none bg-blue-gray-50/50 text-start text-blue-gray-700 hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                 <button type="button"
                                     onClick={handleOpen}
                                     className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-blue-gray-100 text-blue-gray-900 hover:text-blue-gray-900">
@@ -73,7 +73,7 @@ function SidebarWithBurgerMenu() {
                                         <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700">
                                             <Link to="/products/1" onClick={closeDrawer}>
                                                 <div role="button"
-                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                                     <div className="grid mr-4 place-items-center">
                                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                                     </div>
@@ -82,7 +82,7 @@ function SidebarWithBurgerMenu() {
                                             </Link>
                                             <Link to="/products/2" onClick={closeDrawer}>
                                                 <div role="button"
-                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                                     <div className="grid mr-4 place-items-center">
                                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                                     </div>
@@ -91,7 +91,7 @@ function SidebarWithBurgerMenu() {
                                             </Link>
                                             <Link to="/products/3" onClick={closeDrawer}>
                                                 <div role="button"
-                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                                     <div className="grid mr-4 place-items-center">
                                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                                     </div>
@@ -100,7 +100,7 @@ function SidebarWithBurgerMenu() {
                                             </Link>
                                             <Link to="/products/4" onClick={closeDrawer}>
                                                 <div role="button"
-                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                                     <div className="grid mr-4 place-items-center">
                                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                                     </div>
@@ -109,7 +109,7 @@ function SidebarWithBurgerMenu() {
                                             </Link>
                                             <Link to="/products/5" onClick={closeDrawer}>
                                                 <div role="button"
-                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                                     <div className="grid mr-4 place-items-center">
                                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                                     </div>
@@ -118,7 +118,7 @@ function SidebarWithBurgerMenu() {
                                             </Link>
                                             <Link to="/products/6" onClick={closeDrawer}>
                                                 <div role="button"
-                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                                     <div className="grid mr-4 place-items-center">
                                                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                                     </div>
@@ -133,7 +133,7 @@ function SidebarWithBurgerMenu() {
                         <hr className="my-2 border-blue-gray-50" />
                         <Link to={user ? "/user/profile" : "/login"} onClick={closeDrawer}>
                             <div role="button"
-                                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                 <div className="grid mr-4 place-items-center">
                                     <UserCircleIcon className="h-5 w-5" />
                                 </div>
@@ -142,7 +142,7 @@ function SidebarWithBurgerMenu() {
                         </Link>
                         <Link to={user ? "/user/orders" : "/login"} onClick={closeDrawer}>
                             <div role="button"
-                                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                 <div className="grid mr-4 place-items-center">
                                     <ShoppingBagIcon className="h-5 w-5" />
                                 </div>
@@ -152,7 +152,7 @@ function SidebarWithBurgerMenu() {
                         {user ?
                             <div role="button"
                                 onClick={() => handleLogout()}
-                                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                 <div className="grid mr-4 place-items-center">
                                     <PowerIcon className="h-5 w-5" />
                                 </div>
@@ -162,7 +162,7 @@ function SidebarWithBurgerMenu() {
                             <Link to="/user/login">
                                 <div role="button"
                                     onClick={closeDrawer}
-                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+                                    className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50/80 hover:text-blue-gray-900 focus:bg-blue-gray-50/80 focus:text-blue-gray-900 active:bg-blue-gray-50/80 active:text-blue-gray-900">
                                     <div className="grid mr-4 place-items-center">
                                         <PowerIcon className="h-5 w-5" />
                                     </div>

@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const products = useSelector(state => state.cartData.products)
   return (
-    <div className="h-20 shadow-md mb-2 bg-white sticky top-0 z-40">
+    <div className="h-20 shadow-md mb-2 bg-white sticky top-0 z-10">
       <div className="sm:px-3 px-1 h-full flex items-center justify-between">
         {/* LEFT */}
         <div className="flex items-center gap-6 ml-5 sm:mr-12">

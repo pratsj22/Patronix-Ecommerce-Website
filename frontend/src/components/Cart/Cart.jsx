@@ -39,7 +39,7 @@ const Cart = ({ open, setOpen }) => {
         <Dialog open={open} onClose={setOpen} className="relative z-10">
             <DialogBackdrop
                 transition
-                className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-500 ease-in-out data-[closed]:opacity-0"
+                className="fixed inset-0 bg-gray-500/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"
             />
 
             <div className="fixed inset-0 overflow-hidden">
@@ -47,7 +47,7 @@ const Cart = ({ open, setOpen }) => {
                     <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
                         <DialogPanel
                             transition
-                            className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-[closed]:translate-x-full sm:duration-700"
+                            className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
                         >
                             <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                 <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
@@ -71,7 +71,7 @@ const Cart = ({ open, setOpen }) => {
                                             <div role="list" className="-my-6 divide-y divide-gray-200">
                                                 {products.map((product) => (
                                                     <div key={product.id} className="flex py-6">
-                                                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                        <div className="h-24 w-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                             <img
                                                                 alt=""
                                                                 src={product.img}

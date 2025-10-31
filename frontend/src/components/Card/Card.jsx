@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 const Card = ({ item }) => {
   return (
-    <Link to={'/product/' + item._id} className='block w-full sm:w-64 max-w-[260px] h-96 mb-10'>
+    <Link to={'/product/' + item._id} className='group block w-full sm:w-64 max-w-[260px] h-96 mb-10'>
       <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-md">
         <img
           alt=""
           src={item.image1}
-          className="h-72 w-72 object-cover group-hover:opacity-75"
+          className="h-72 w-72 object-cover transition-transform duration-300 group-hover:scale-110"
         />
       </div>
       <h3 className="mt-4 text-normal text-gray-700">{item.title.split(" ").slice(0, 5).map((i) => (i + " "))}</h3>
