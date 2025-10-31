@@ -14,7 +14,7 @@ export default function UserDetail() {
   const[logout,setLogout]= useState(false)
   const location= useLocation();
   return (
-    <Menu as="div" className="relative inline-block text-left ic">
+    <Menu as="div" className="relative text-left ic hidden sm:inline-block">
       <div className='flex items-center'>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-m items-center" >
           <PersonOutlineOutlinedIcon />

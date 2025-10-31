@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from '../../api/api';
 // import {useSelector} from 'react-redux'
 import { toast } from "react-toastify";
 import { userLogin } from "../../redux/userReducer";
@@ -25,7 +25,7 @@ export default function Login() {
     e.preventDefault();
     
     try {
-      const loginData=await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/auth/login`,{
+      const loginData=await api.post(`/api/v1/auth/login`,{
         email,
         password
       })

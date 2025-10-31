@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
-import axios from "axios";
+import api from '../../api/api';
 import { useDispatch} from 'react-redux';
 import {userLogin} from '../../redux/userReducer';
 
@@ -28,7 +28,7 @@ export default function SignUp() {
     if(!email || !password || !phone || !address || !firstName || !lastName) return;
     e.preventDefault();
     try {
-      const loginData= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/auth/register`,{
+      const loginData= await api.post(`/api/v1/auth/register`,{
         name: firstName+" "+lastName,
         email,
         phone,

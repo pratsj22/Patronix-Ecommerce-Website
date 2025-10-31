@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
-import "./Navbar.scss"
+// Navbar styles replaced with Tailwind classes
 import Cart from '../Cart/Cart';
 import { useSelector } from 'react-redux';
 import Dropdown from '../Dropdown/Dropdown';
@@ -19,48 +19,46 @@ const Navbar = () => {
 
   const products = useSelector(state => state.cartData.products)
   return (
-    <div className='navbar'>
-      <div className="wrapper">
-        <div className='left'>
-          <div className="items-center hidden x-sm:flex z-50">
+    <div className="h-20 shadow-md mb-2 bg-white sticky top-0 z-40">
+      <div className="sm:px-3 px-1 h-full flex items-center justify-between">
+        {/* LEFT */}
+        <div className="flex items-center gap-6 ml-5 sm:mr-12">
+          <div className="flex md:hidden items-center z-50">
             <SidebarWithBurgerMenu />
           </div>
-          <div className="item">
-            <span>INR</span>
-            <ChevronDownIcon className="-mr-1 h-5 w-5 text-black" aria-hidden="true" />
-          </div>
-          <div className="item cat" >
+          <div className="hidden md:block cursor-pointer">
             <Dropdown />
           </div>
-          <div className='item'>
+          <div className="hidden md:flex items-center text-base">
             <Link to="/">Homepage</Link>
           </div>
         </div>
 
-        <div className='centre'>
+        {/* CENTER */}
+        <div className="flex items-center text-3xl tracking-wider font-semibold">
           <Link to="/">Patronix</Link>
         </div>
 
-
-        <div className='right'>
-          <div className='item'>
+        {/* RIGHT */}
+        <div className="flex items-center gap-6 mr-2">
+          <div className="hidden md:flex items-center text-base">
             <Link to="/">About</Link>
           </div>
-          <div className='item'>
+          <div className="hidden md:flex items-center text-base">
             <Link to="/">Contact</Link>
           </div>
-          <div className='item'>
+          <div className="hidden md:flex items-center text-base">
             <Link to="/">Stores</Link>
           </div>
-          <div className="icons flex items-center">
-            <div onClick={() => setSearch(!search)}>
+          <div className="flex items-center gap-4 cursor-pointer">
+            <div onClick={() => setSearch(!search)} className="p-1">
               <SearchIcon />
             </div>
             <UserDetail />
-            <FavoriteBorderOutlinedIcon className='ic' />
-            <div className="carticon" onClick={() => setOpen(!open)}>
+            <FavoriteBorderOutlinedIcon className="hidden sm:inline" />
+            <div className="relative" onClick={() => setOpen(!open)}>
               <ShoppingCartOutlinedIcon />
-              <span>{products.length}</span>
+              <span className="absolute -right-2 -top-2 text-xs w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center">{products.length}</span>
             </div>
           </div>
         </div>

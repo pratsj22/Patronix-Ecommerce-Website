@@ -1,4 +1,4 @@
-import axios from "axios"
+import api from "../../api/api"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import useValidate from "../../hooks/useValidate";
@@ -13,7 +13,7 @@ export default function OrderDetails() {
   }, [])
   useEffect(()=>{
     const fetchData=async()=>{
-      const res= await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/orders/get-orders/${user.id}`)
+      const res= await api.get(`/api/v1/orders/get-orders/${user.id}`)
       setOrders(res.data.data)
     }
     fetchData()

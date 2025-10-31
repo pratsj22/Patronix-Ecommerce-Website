@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../api/api";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const useValidate=()=>{
     useEffect(()=>{
         const ValidateUser=async()=>{
             try {
-              await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/auth/test`,{
+              await api.get(`/api/v1/auth/test`,{
                 headers:{
                   'Authorization':`bearer ${token}`,
                   'User':user.id

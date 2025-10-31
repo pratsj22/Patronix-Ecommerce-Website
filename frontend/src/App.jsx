@@ -8,7 +8,7 @@ import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/footer/Footer";
-import "./App.scss"
+// global styles moved to Tailwind (index.css)
 import SignUp from "./pages/SignUp&Login/SignUp";
 import Login from "./pages/SignUp&Login/Login";
 import MyProfile from "./pages/MyProfile/MyProfile";

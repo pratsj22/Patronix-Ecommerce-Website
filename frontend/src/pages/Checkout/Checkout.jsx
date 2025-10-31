@@ -1,5 +1,5 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
+import api from '../../api/api'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import useValidate from '../../hooks/useValidate'
@@ -25,18 +25,18 @@ const Checkout = () => {
   }
 
   const handlePurchase = async (e) => {
-    const res= await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/`, {
+    const res= await api.post(`/api/v1/orders/`, {
       amount: totalPrice()*100,
     })
     const order= res.data.orders.id;
     const options = {
-      key: process.env.REACT_APP_KEY_ID,
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       order_id: order,
       name: user.name,
       description: "desc",
       image: "https://cdn.razorpay.com/logos/BUVwvgaqVByGp2_large.jpg",
       "handler": function (response){
-        axios.post(`${process.env.REACT_APP_API_URL}/api/v1/orders/create`,{
+        api.post(`/api/v1/orders/create`,{
           orderId:order,
           products:products.map((item)=>({id:item.id,quantity:item.quantity})),
           totalAmount:res.data.orders.amount/100,
