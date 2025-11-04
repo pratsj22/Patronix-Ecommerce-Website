@@ -28,7 +28,7 @@ const FeaturedProd = ({ type }) => {
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-2xl font-semibold">{type} Products</h2>
         </div>
-        <div className="w-full flex flex-wrap justify-between sm:flex-row flex-col sm:items-center">
+        <div className="w-full flex flex-wrap justify-between sm:flex-row flex-col items-center">
           <CardSkeleton />
           <CardSkeleton />
           <CardSkeleton />
