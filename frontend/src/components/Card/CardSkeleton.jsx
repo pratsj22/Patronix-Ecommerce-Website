@@ -2,7 +2,7 @@ import React from 'react'
 
 const CardSkeleton = () => {
   return (
-    <div className="block w-full sm:w-64 max-w-[260px] card animate-pulse mb-5">
+    <div className="block w-full sm:w-64 max-w-[260px] card animate-pulse mb-5 mx-auto">
       <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-md h-80">
         <div className="h-full w-full bg-gray-300"></div>
       </div>

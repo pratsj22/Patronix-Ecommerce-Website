@@ -29,7 +29,7 @@ const List = ({ catId, sort, subCats }) => {
 
   if (loading) {
     return (
-      <div className="mx-4 md:mx-10 flex flex-wrap justify-between">
+      <div className="grid sm:grid-cols-3 grid-cols-1">
         <CardSkeleton />
         <CardSkeleton />
         <CardSkeleton />
@@ -39,7 +39,7 @@ const List = ({ catId, sort, subCats }) => {
   }
 
   return (
-    <div className="mx-4 md:mx-10 flex flex-wrap justify-between">
+    <div className="grid sm:grid-cols-3 grid-cols-1">
       {error ? "Something went wrong!"
         : data?.map(item => (
           <Card item={item} key={item._id} />
