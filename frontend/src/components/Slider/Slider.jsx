@@ -23,22 +23,22 @@ const Slider = () => {
         >
             <SwiperSlide>
                 <Link to="./products/1" >
-                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-cover" src="/img/img1.jpg" alt="" />
+                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-fill" src="/img/img1.jpg" alt="" />
                 </Link>
             </SwiperSlide>
             <SwiperSlide>
                 <Link to="./products/4" >
-                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-cover" src="/img/img4.jpg" alt="" />
+                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-fill" src="/img/img4.jpg" alt="" />
                 </Link>
             </SwiperSlide>
             <SwiperSlide>
                 <Link to="./products/2" >
-                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-cover" src="/img/img2.jpg" alt="" />
+                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-fill" src="/img/img2.jpg" alt="" />
                 </Link>
             </SwiperSlide>
             <SwiperSlide>
                 <Link to="./products/5" >
-                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-cover" src="/img/img5.jpg" alt="" />
+                    <img className="w-full h-[20rem] sm:h-[30rem] sm:object-fill" src="/img/img5.jpg" alt="" />
                 </Link>
             </SwiperSlide>
         </Swiper>
